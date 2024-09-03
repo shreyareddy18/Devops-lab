@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById('firstname').value;
+            var lastName = document.getElementById('lastname').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('pass').value;
+            var mobileNo = document.getElementById('mobileno').value;
+           
+
+            if (firstName.length < 6) {
+                alert("First Name must be at least 6 characters long.");
+                return false;
+            }
+
+            if (lastName.length === 0) {
+                alert("Please enter your Last Name.");
+                return false;
+            }
+
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters long.");
+                return false;
+            }
+
+           
+
+            var mobilePattern = /^\d{10}$/;
+            if (!mobilePattern.test(mobileNo)) {
+                alert("Please enter a 10-digit Mobile Number.");
+                return false;
+            }
+            alert("Submission successful");
+            return true;
+        }
+    </script>
+</head>
+<body bgcolor="cyan">
+    <center><font color="blue" size="6" face="arial">Registration Form</font></center><br>
+    <form  onsubmit="return validateForm()">
+        First Name (Minimum 6 characters): <input type='text' id='firstname' /><br><br>
+        Last Name: <input type='text' id='lastname' /><br><br>
+        Email Address (one e-mail id only): <input type='text' id='email' /><br><br>
+        Password (minimum 6 characters): <input type='password' id='pass'><br><br>
+        Mobile No: <input type='text' id='mobileno' /><br><br>
+        <br><br>
+        <input type='Submit' value='Submit' />
+        <input type='Reset' value='Reset' />
+    </form>
+</body>
+</html>
